@@ -1,0 +1,126 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --bg-canvas: #f5f5f7;
+    --bg-surface: #ffffff;
+    --bg-subtle: #ededf0;
+    --ink-primary: #09090b;
+    --ink-secondary: #52525b;
+    --ink-muted: #71717a;
+    --border-hairline: rgba(9, 9, 11, 0.1);
+    --border-strong: rgba(9, 9, 11, 0.22);
+    --shadow-black-sm: 0 4px 14px -4px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-black-md: 0 14px 34px -10px rgba(0, 0, 0, 0.24), 0 4px 10px -2px rgba(0, 0, 0, 0.12);
+    --shadow-black-lg: 0 24px 52px -12px rgba(0, 0, 0, 0.34), 0 8px 18px -4px rgba(0, 0, 0, 0.16);
+    --shadow-solid: 4px 4px 0px #09090b;
+  }
+
+  .dark {
+    --bg-canvas: #09090b;
+    --bg-surface: #121215;
+    --bg-subtle: #1b1b20;
+    --ink-primary: #fafafa;
+    --ink-secondary: #a1a1aa;
+    --ink-muted: #71717a;
+    --border-hairline: rgba(255, 255, 255, 0.1);
+    --border-strong: rgba(255, 255, 255, 0.22);
+    --shadow-black-sm: 0 4px 16px -4px rgba(0, 0, 0, 0.65), 0 1px 4px rgba(0, 0, 0, 0.5);
+    --shadow-black-md: 0 16px 38px -10px rgba(0, 0, 0, 0.85), 0 4px 12px -2px rgba(0, 0, 0, 0.6);
+    --shadow-black-lg: 0 28px 60px -12px rgba(0, 0, 0, 0.95), 0 10px 22px -4px rgba(0, 0, 0, 0.75);
+    --shadow-solid: 4px 4px 0px #000000;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--bg-canvas);
+    color: var(--ink-primary);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  code, pre, textarea.code-input, .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom Coding Cursor Mode (desktop fine pointers only) */
+@media (pointer: fine) {
+  html.custom-cursor-active,
+  html.custom-cursor-active *,
+  html.custom-cursor-active button,
+  html.custom-cursor-active a,
+  html.custom-cursor-active input,
+  html.custom-cursor-active textarea,
+  html.custom-cursor-active select {
+    cursor: none !important;
+  }
+}
+
+/* Black architectural elevation shadows */
+.shadow-black-sm {
+  box-shadow: var(--shadow-black-sm);
+}
+
+.shadow-black-md {
+  box-shadow: var(--shadow-black-md);
+}
+
+.shadow-black-lg {
+  box-shadow: var(--shadow-black-lg);
+}
+
+.shadow-black-solid {
+  box-shadow: var(--shadow-solid);
+}
+
+/* Subtle crisp scrollbars */
+.kanso-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.kanso-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.kanso-scroll::-webkit-scrollbar-thumb {
+  background: rgba(113, 113, 122, 0.28);
+  border-radius: 9999px;
+}
+
+.kanso-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(113, 113, 122, 0.48);
+}
+
+/* Synchronized code editor overlay */
+.code-editor-layer {
+  font-family: var(--font-mono);
+  font-variant-ligatures: contextual;
+  tab-size: 2;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-wrap: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

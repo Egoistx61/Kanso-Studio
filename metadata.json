@@ -1,0 +1,6 @@
+{
+  "name": "Kanso Studio",
+  "description": "Minimalist 17-language interactive code editor and live execution studio with 3D reactive panels and custom coding cursor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

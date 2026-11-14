@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Workspace — Kanso Studio</title>
+    <script>
+      window.addEventListener(
+        'error',
+        function (e) {
+          if (e && typeof e.filename === 'string' && e.filename.indexOf('chrome-extension://') === 0) {
+            e.stopImmediatePropagation();
+            e.preventDefault();
+          }
+        },
+        true
+      );
+      try {
+        if (localStorage.getItem('kanso-theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    </script>
+    <meta
+      name="description"
+      content="Dedicated coding workspace in Kanso Studio with multi-layout views, saved files manager, and live execution across 17 languages."
+    />
+    <meta property="og:title" content="Workspace — Kanso Studio" />
+    <meta
+      property="og:description"
+      content="Dedicated coding workspace in Kanso Studio with multi-layout views, saved files manager, and live execution across 17 languages."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/app-main.tsx"></script>
+  </body>
+</html>
